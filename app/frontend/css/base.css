@@ -1,0 +1,103 @@
+:root {
+    /* FOUNDATION */
+    --bg-base: #0b0d10;
+    --bg-panel: #14171c;
+    --bg-header: rgba(20, 23, 28, 0.82);
+    --bg-hover: #1c2128;
+    --bg-secondary: #252b34;
+
+    /* TEXT */
+    --text-primary: #f3f4f6;
+    --text-secondary: #9aa4b2;
+    --text-inverse: #0f1115;
+
+    /* BORDERS */
+    --border-color: #2b313c;
+    --border-subtle: #222831;
+    --border-focus: #d8dee9;
+
+    /* ACCENTS */
+    --accent-blue: #5C94DA;
+    --accent-red: #CC5C5C;
+    --accent-green: #83CC83;
+    --accent-emerald: #2EA47E;
+    --accent-orange: #DDA054;
+    --accent-gold: #DEB853;
+    --accent-purple: #948ECB;
+    --accent-brown: #b08968;
+
+    /* EFFECTS */
+    --shadow-color: rgba(0, 0, 0, 0.45);
+}
+
+/* LIGHT MODE PALETTE (Saved for future use)
+   To enable, simply change your body tag in index.html to: <body class="theme-light">
+*/
+.theme-light {
+    --bg-base: #f5f5f7;
+    --bg-panel: #ffffff;
+    --bg-header: rgba(255, 255, 255, 0.85);
+    --bg-hover: #f4f4f7;
+    --bg-secondary: #e5e5ea;
+
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --text-inverse: #ffffff;
+
+    --border-color: #cccccc;
+    --border-focus: #1d1d1f;
+
+    --accent-blue: #0a84ff;
+    --accent-red: #ff453a;
+    --accent-green: #32d74b;
+    --accent-emerald: #10B981;
+    --accent-orange: #ff9f0a;
+    --accent-gold: #D4AF37;
+    --accent-purple: #5856d6;
+    --accent-brown: #a2845e;
+
+    --accent-purple: #5856d6;
+    --accent-brown: #a2845e;
+    
+    --shadow-color: rgba(204, 204, 204, 0.5);
+}
+
+/* Update your base body to use these variables */
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.mode-hidden {
+    display: none !important;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.main-content.safe-mode-active .safe-restricted {
+    display: none !important; 
+}
+
+/* 2. Hides the daily evaluation scores on the calendar tiles */
+.main-content.safe-mode-active .day-score {
+    display: none !important;
+    opacity: 0;
+    pointer-events: none;
+}

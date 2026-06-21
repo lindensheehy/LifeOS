@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Tracker</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bundle.css') }}">
+
+</head>
+<body>
+    <div class="header-bar">
+        <div class="header-spacer"></div>
+        <h1 id="year-display">2026</h1>
+        <div class="header-spacer"></div>
+    </div>
+
+    <div class="main-content">
+
+        <button id="btn-today-top" class="floating-today-btn anchor-top hidden">
+            <svg width="24" height="12" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10 L12 3 L21 10"/>
+            </svg>
+            <span>Jump to Today</span>
+        </button>
+
+        <button id="btn-today-bottom" class="floating-today-btn anchor-bottom hidden">
+            <span>Jump to Today</span>
+            <svg width="24" height="12" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2 L12 9 L21 2"/>
+            </svg>
+        </button>
+        
+        <div class="calendar-container">
+
+            <div class="calendar-header">
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+            </div>
+
+            <div id="calendar-viewport" class="calendar-viewport">
+                <div id="calendar-spacer" class="calendar-spacer"></div>
+                <div id="calendar-content" class="calendar-content"></div>
+            </div>
+
+        </div>
+
+        <div id="side-panel" class="side-panel">
+
+            <button id="close-panel" class="close-btn">&#10095;</button> 
+
+            <div class="panel-header">
+                <h2 id="panel-date">Date</h2>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span id="save-status" class="status-indicator">Saved</span>
+                    <button id="mode-toggle-btn" class="nav-btn">View</button>
+                </div>
+            </div>
+
+            <div class="panel-content">
+                <div id="panel-events-wrapper">
+                    <div id="sections-container"></div>
+                    <div id="safe-mode-parking-lot" style="display: none;"></div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div id="unsaved-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button id="modal-close-x" class="modal-x-btn">✕</button>
+            <h3 style="margin-top: 0; color: #1d1d1f;">Unsaved Changes</h3>
+            <p style="color: #666666; font-size: 14px; margin-bottom: 20px; line-height: 1.4;">
+                You have unsaved changes. What would you like to do before moving on?
+            </p>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button id="modal-abandon" class="btn-danger">Abandon changes</button>
+                <button id="modal-save-exit" class="btn-primary">Save and exit</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+
+</body>
+</html>

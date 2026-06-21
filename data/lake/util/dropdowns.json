@@ -1,0 +1,37 @@
+{
+    "gym_days": [
+        "Arms", 
+        "Back", 
+        "Chest", 
+        "Legs", 
+        "Rest"
+    ],
+    "gym_movements": [
+        
+        "Lat Pulldown", 
+        "Seated Cable Row",
+        "Cable Lat Pullover", 
+        "Dumbbell Shrug",
+        "Rear Delt Fly",
+
+        "Barbell Bench Press",
+        "Barbell Incline Press",
+        "Smith Incline Press",
+        "Pec Deck",
+        "Dips",
+
+        "Dumbbell Overhead Press",
+        "Dumbbell Incline Curl",
+        "Dumbbell Lat Raise",
+        "Cable Tricep Pushdown",
+
+        "Leg Press",
+        "Calf Raise",
+        "Hamstring Curl"
+        
+    ],
+    "coding_projects": [
+        "Journal App", 
+        "Capstone"
+    ]
+}

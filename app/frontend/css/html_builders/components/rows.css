@@ -1,0 +1,13 @@
+/* Specific Row Layouts */
+.eval-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.labeled-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}

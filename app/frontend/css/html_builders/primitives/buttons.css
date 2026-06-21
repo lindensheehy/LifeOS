@@ -1,0 +1,59 @@
+/* Base: createButton */
+.button {
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: all 0.2s ease-out;
+    box-sizing: border-box;
+}
+
+/* Modifier: createAddButton */
+.add-button {
+    padding: 6px 12px;
+    align-self: flex-start;
+    margin-top: 4px;
+    font-weight: 600;
+}
+.add-button:hover {
+    background: var(--accent-blue);
+    color: var(--text-inverse);
+}
+
+/* Modifier: createDeleteButton (Text) */
+.delete-button {
+    padding: 0 10px;
+    font-size: 12px;
+}
+.delete-button:hover {
+    background: var(--accent-red);
+    color: var(--text-inverse);
+}
+
+/* Modifier: createTrashButton (Icon) */
+.trash-button {
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.trash-button:hover {
+    background: var(--accent-red);
+    color: var(--text-inverse);
+}
+
+/* Modifier: createCopyButton */
+.copy-button {
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 700;
+    background: var(--bg-base);
+    color: var(--text-secondary);
+}
+.copy-button:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}

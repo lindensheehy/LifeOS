@@ -1,0 +1,226 @@
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 30px 30px 45px; 
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-panel);
+
+    position: relative;
+    z-index: 10;
+    transition: box-shadow 0s;
+}
+
+.panel-header.scrolled {
+    box-shadow: 0 20px 20px -12px var(--shadow-color);
+    transition: box-shadow 0.3s ease-out;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.panel-content {
+    padding: 40px 30px 30px 45px;
+    min-width: 300px;
+    overflow-y: auto; 
+    flex-grow: 1; 
+    box-sizing: border-box;
+    background: var(--bg-panel);
+}
+
+.panel-content h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.section-block {
+    margin-bottom: 24px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header span {
+    font-size: 28px; 
+    font-weight: 650; 
+    color: var(--text-primary);
+    text-transform: capitalize;
+}
+
+.section-error {
+    color: var(--accent-red);
+    font-size: 12px;
+    font-weight: 500;
+    display: none; 
+}
+
+.section-editor {
+    width: 100%;
+    height: 120px; 
+    background: var(--bg-panel);
+    color: var(--text-primary);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid transparent; 
+    resize: vertical; 
+    outline: none;
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 4px var(--shadow-color);
+    transition: border-color 0.2s;
+}
+
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 30px auto; 
+}
+
+.close-btn {
+    position: absolute;
+    top: 50%;
+    left: 5px; 
+    transform: translateY(-50%); 
+    background: var(--bg-secondary); 
+    border: none;
+    border-radius: 8px; 
+    font-size: 18px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 25px 8px; 
+    transition: all 0.2s;
+    z-index: 10; 
+}
+
+.close-btn:hover {
+    background: var(--bg-hover); 
+    color: var(--text-primary);
+}
+
+.status-indicator {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    padding: 4px 10px;
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+.status-indicator.unsaved {
+    background: var(--accent-red); 
+    color: var(--text-primary);
+}
+
+.status-indicator.saved {
+    background: var(--accent-green); 
+    color: var(--text-primary);
+}
+
+#json-editor {
+    width: 100%;
+    height: calc(100vh - 120px);
+    background: #1e1e1e; 
+    color: var(--text-primary);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay for dark mode */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--bg-panel);
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    position: relative;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.modal-x-btn {
+    position: absolute;
+    top: 15px; right: 15px;
+    background: none; border: none;
+    font-size: 16px; font-weight: bold;
+    color: var(--text-secondary); cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-x-btn:hover { color: var(--text-primary); }
+
+.btn-primary {
+    background: var(--accent-blue); color: var(--text-primary);
+    border: none; padding: 8px 16px; border-radius: 6px;
+    cursor: pointer; font-weight: 500; transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.8; }
+
+.btn-danger {
+    background: var(--accent-red); color: var(--text-primary);
+    border: none; padding: 8px 16px; border-radius: 6px;
+    cursor: pointer; font-weight: 500; transition: opacity 0.2s;
+}
+.btn-danger:hover { opacity: 0.8; }
+
+
+/* --- MODE TOGGLE BUTTON --- */
+#mode-toggle-btn {
+    border: none;
+    outline: none;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 6px 16px;
+    border-radius: 6px;
+    width: auto;
+    font-weight: 600;
+    transition: all 0.2s ease-out;
+}
+
+#mode-toggle-btn:hover {
+    background: var(--accent-blue);
+    color: var(--text-inverse); /* Flips text to dark so it's readable on the blue */
+    opacity: 1; /* Overrides the default .nav-btn fade effect */
+}
+
+/* --- SAFE MODE PARKING LOT --- */
+#safe-mode-parking-lot {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 800px; /* Approximate width of your panel */
+    visibility: visible;
+    pointer-events: none;
+}
+
+.safe-mode-anchor {
+    display: none; /* Anchors stay completely invisible */
+}

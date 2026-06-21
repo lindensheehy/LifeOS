@@ -1,0 +1,150 @@
+/* Modifier: createTextbox (handles type="text" and type="number") */
+.textbox {
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    outline: none;
+    background: var(--bg-panel);
+    color: var(--text-primary);
+    transition: border-color 0.2s ease-out;
+    box-sizing: border-box;
+}
+
+.textbox:focus {
+    border-color: var(--border-focus);
+}
+
+/* Modifier: createCheckbox */
+.checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent-blue);
+    margin: 0; /* Resets browser defaults */
+}
+
+/* Base Slider Reset & Custom Track */
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    flex-grow: 1;
+    margin: 0 15px;
+    height: 6px;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+
+    /* Custom variables for our track logic */
+    --track-bg: var(--bg-secondary);
+    --fill-color: var(--accent-blue);
+    --slider-pct: 50%; /* Default midpoint, overwritten by JS */
+
+    /* The magic gradient that fills the track to the exact thumb position */
+    background: linear-gradient(
+        to right, 
+        var(--fill-color) 0%, 
+        var(--fill-color) var(--slider-pct), 
+        var(--track-bg) var(--slider-pct), 
+        var(--track-bg) 100%
+    );
+}
+
+/* Webkit Thumb */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--fill-color);
+    border: none;
+    transition: transform 0.15s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.15s ease;
+    /* Center on the 6px track (6 - 14) / 2 = -4 */
+    margin-top: -4px; 
+}
+
+/* Firefox Thumb */
+.slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--fill-color);
+    border: none;
+    transition: transform 0.15s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.15s ease;
+}
+
+/* Webkit Track (Overrides native OS styling) */
+.slider::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 3px;
+    background: transparent; /* Lets the parent gradient show through */
+}
+
+/* Firefox Track */
+.slider::-moz-range-track {
+    height: 6px;
+    border-radius: 3px;
+    background: transparent;
+}
+
+/* --- SUBTLE INTERACTIVE STATES --- */
+.slider:hover::-webkit-slider-thumb {
+    transform: scale(1.2);
+}
+.slider:active::-webkit-slider-thumb {
+    transform: scale(0.9);
+    /* Extremely soft translucent ring instead of a harsh glow */
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05); 
+}
+
+.slider:hover::-moz-range-thumb {
+    transform: scale(1.2);
+}
+.slider:active::-moz-range-thumb {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05);
+}
+
+/* Accessible focus state */
+.slider:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+/* Dynamic Slider Color Modifiers (Overrides the --fill-color variable) */
+.slider-red { --fill-color: var(--accent-red); }
+.slider-orange { --fill-color: var(--accent-orange); }
+.slider-green { --fill-color: var(--accent-green); }
+.slider-emerald { --fill-color: var(--accent-emerald); }
+
+/* Modifier: createLabel */
+.label {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+/* Optional Layout Modifier for rows that need alignment (formerly the 220px JS hack) */
+.label-fixed {
+    width: 120px;
+    display: inline-block;
+}
+
+/* Modifier: createTextarea */
+.textarea {
+    width: 100%;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    outline: none;
+    background: var(--bg-panel);
+    color: var(--text-primary);
+    transition: border-color 0.2s ease-out;
+    box-sizing: border-box;
+    resize: none; 
+    font-family: inherit; 
+    line-height: 1.4;
+    overflow: hidden; 
+}
+
+.textarea:focus {
+    border-color: var(--border-focus);
+}

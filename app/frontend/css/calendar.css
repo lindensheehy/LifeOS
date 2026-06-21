@@ -1,0 +1,268 @@
+/* --- VIRTUALIZATION ENGINE --- */
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    margin-bottom: -20px; 
+}
+
+.calendar-viewport {
+    flex: 1; /* Takes up all remaining space below header */
+    min-height: 0; /* Prevents flex blowout */
+    position: relative; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+    
+    /* FIX 1: Hide the scrollbar completely */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.calendar-viewport::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+.calendar-spacer {
+    height: 500000px; 
+    width: 1px; 
+}
+
+.calendar-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    
+    /* FIX 2: Restored generous tile spacing */
+    gap: 15px; 
+    grid-auto-rows: 115px; 
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 20px 20px 15px 20px; 
+    
+    z-index: 10;
+    flex-shrink: 0;
+    background: var(--bg-panel); 
+    
+    /* FIX 4: Added bottom border to match the rest of the codebase */
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 20px 20px -12px var(--shadow-color);
+}
+
+.day {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+
+    height: 100%;
+    box-sizing: border-box;
+
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.weekend {
+    background: var(--bg-hover);
+}
+
+.weekend:hover {
+    background: var(--bg-secondary);
+}
+
+.day:hover {
+    box-shadow: 0 6px 16px var(--shadow-color);
+    transform: translateY(-2px);
+    border-color: var(--border-focus);
+    background: var(--bg-panel);
+}
+
+.day-number {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.today {
+    border: 2px solid var(--accent-red);
+    background: var(--bg-hover);
+}
+
+.today .day-number {
+    color: var(--accent-red);
+}
+
+.day.selected {
+    border: 2px solid var(--border-focus);
+    background: var(--bg-panel);
+    box-shadow: 0 6px 16px var(--shadow-color);
+    transform: translateY(-2px);
+    z-index: 5;
+}
+
+.day-progress-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: transparent;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.day-progress-bar {
+    height: 100%;
+    background: var(--accent-red); 
+    width: 0%;
+    transition: width 1s ease-out;
+}
+
+.day-score {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.score-low { color: var(--accent-red); }       
+.score-mid { color: var(--accent-orange); }       
+.score-high { color: var(--accent-green); }      
+.score-emerald { color: var(--accent-emerald); }    
+
+.day-badges {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.day-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 6px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-coding { 
+    background-color: var(--accent-blue); 
+    color: var(--text-inverse); 
+} 
+
+.badge-gym { 
+    background-color: var(--text-secondary); 
+    color: var(--text-inverse); 
+} 
+
+.badge-gym-arms { background-color: var(--accent-purple); color: var(--text-inverse); }
+.badge-gym-chest { background-color: var(--accent-red); color: var(--text-inverse); } 
+.badge-gym-back { background-color: var(--accent-orange); color: var(--text-inverse); } 
+.badge-gym-legs { background-color: var(--accent-brown); color: var(--text-inverse); }
+.badge-gym-push { background-color: var(--accent-red); color: var(--text-inverse); }
+.badge-gym-pull { background-color: var(--accent-orange); color: var(--text-inverse); }
+
+.badge-gym-rest { 
+    background-color: var(--bg-secondary); 
+    color: var(--text-secondary); 
+}
+
+.floating-today-btn {
+    position: absolute;
+    left: 50%;
+    z-index: 100;
+    padding: 12px 24px;
+    background: var(--accent-blue);
+    color: var(--text-inverse);
+    border: none;
+    border-radius: 30px;
+    
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 650;
+    letter-spacing: 0.3px;
+    
+    cursor: pointer;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; 
+    
+    transition: left 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                opacity 0.3s, 
+                transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                filter 0.2s ease-out;
+}
+
+.main-content.panel-open .floating-today-btn {
+    left: 30%; 
+}
+
+.floating-today-btn.anchor-bottom {
+    bottom: 30px;
+    transform: translateX(-50%) translateY(0);
+}
+.floating-today-btn.anchor-bottom:hover {
+    transform: translateX(-50%) translateY(-4px);
+    box-shadow: 0 15px 25px var(--shadow-color);
+    filter: brightness(1.15);
+}
+.floating-today-btn.anchor-bottom.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(20px);
+}
+
+.floating-today-btn.anchor-top {
+    top: 90px;
+    transform: translateX(-50%) translateY(0);
+}
+.floating-today-btn.anchor-top:hover {
+    transform: translateX(-50%) translateY(4px);
+    box-shadow: 0 15px 25px var(--shadow-color);
+    filter: brightness(1.15)
+}
+.floating-today-btn.anchor-top.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-20px);
+}
+
+.day-profit {
+    position: absolute;
+    bottom: 12px;
+    right: 15px;
+}

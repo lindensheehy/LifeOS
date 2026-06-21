@@ -1,0 +1,76 @@
+/* =========================================
+   TYPOGRAPHY & TEXT
+========================================= */
+/* Colors */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-accent-blue { color: var(--accent-blue); }
+.text-accent-red { color: var(--accent-red); }
+.text-accent-orange { color: var(--accent-orange); }
+.text-accent-green { color: var(--accent-green); }
+.text-accent-emerald { color: var(--accent-emerald); }
+
+/* Font Weights */
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-650 { font-weight: 650; }
+.fw-700 { font-weight: 700; }
+
+/* Font Sizes */
+.fs-12 { font-size: 12px; }
+.fs-13 { font-size: 13px; }
+.fs-14 { font-size: 14px; }
+.fs-18 { font-size: 18px; }
+
+/* Text Modifiers */
+.text-uppercase { text-transform: uppercase; letter-spacing: 0.5px; }
+.text-capitalize { text-transform: capitalize; }
+.text-monospace { font-family: "Courier New", Courier, monospace; }
+.text-italic { font-style: italic; }
+.text-paragraph { line-height: 1.4; }
+.whitespace-nowrap { white-space: nowrap; }
+
+/* =========================================
+   FLEXBOX LAYOUTS
+========================================= */
+.flex-grow-1 { flex-grow: 1; }
+
+.flex-row-6 { display: flex; gap: 6px; }
+.flex-row-8 { display: flex; gap: 8px; }
+.flex-row-10 { display: flex; gap: 10px; }
+
+.flex-row-center-6 { display: flex; align-items: center; gap: 6px; }
+.flex-row-center-8 { display: flex; align-items: center; gap: 8px; }
+
+.flex-col-6 { display: flex; flex-direction: column; gap: 6px; }
+.flex-col-8 { display: flex; flex-direction: column; gap: 8px; }
+
+.flex-center { display: flex; justify-content: center; align-items: center; }
+
+/* =========================================
+   SPACING (Margins & Padding)
+========================================= */
+/* Margins Bottom */
+.mb-4 { margin-bottom: 4px; }
+.mb-6 { margin-bottom: 6px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-12 { margin-bottom: 12px; }
+
+/* Margins Top / Left */
+.mt-4 { margin-top: 4px; }
+.ml-10 { margin-left: 10px; }
+
+/* Padding Left */
+.pl-10 { padding-left: 10px; }
+
+/* =========================================
+   SIZING & BACKGROUNDS
+========================================= */
+.w-100 { width: 100%; }
+.w-70 { width: 70px; }
+.w-50 { min-width: 50px; }
+
+.bg-base { background: var(--bg-base) !important; }
+
+.d-none { display: none !important; }
